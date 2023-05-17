@@ -26,7 +26,7 @@ export default function Banner() {
       >
         <img
           src={
-            "https://img.freepik.com/free-photo/green-easter-car-with-eggs-copy-space_23-2149301298.jpg?w=1480&t=st=1684354161~exp=1684354761~hmac=d9210ee5f7cf1126caa4aa81e2d64a22ac32402bf28e5f25166c91f6a45164b1"
+            "https://img.freepik.com/free-photo/small-red-car-toy-kid-child-playing-with-it_114579-7239.jpg?w=1380&t=st=1684354800~exp=1684355400~hmac=2c64b241248c8acccd4d38cc3a7efa86f44e2c50a28aa36ac521a7a3afd31ac5"
           }
           className="w-full"
         />
