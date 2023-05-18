@@ -1,8 +1,20 @@
+import { Link } from "react-router-dom";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+
 export default function Login() {
+  const { loginUser } = useContext(AuthContext);
   const handleLogin = (event) => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    loginUser(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => console.log(error));
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -36,16 +48,19 @@ export default function Login() {
                 />
                 <label className="label">
                   <p>New to this website?</p>
-                  <a href="#" className="label-text-alt link link-hover ml-2">
-                    Please Resister
-                  </a>
+                  <Link to="/resister">
+                    <a href="#" className="label-text-alt link link-hover ml-2">
+                      Please Resister
+                    </a>
+                  </Link>
                 </label>
               </div>
+              <div className="form-control mt-6">
+                <button className="btn btn-primary">Login</button>
+              </div>
             </form>
-            <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
-            </div>
           </div>
+          <SocialLogin />
         </div>
       </div>
     </div>
