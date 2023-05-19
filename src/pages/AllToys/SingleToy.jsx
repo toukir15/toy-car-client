@@ -1,5 +1,3 @@
-import Category from "../Home/ShopByCategory/Category";
-
 export default function SingleToy({ singleToyData }) {
   const { img, name, Category, price } = singleToyData;
   return (

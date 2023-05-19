@@ -7,10 +7,11 @@ import {
   AiOutlineStar,
 } from "react-icons/ai";
 import SingleToyDetails from "../../Shared/SingleToyDetails/SingleToyDetails";
+import { Link } from "react-router-dom";
 
 export default function SingleCategory({ SingleCategoryData }) {
   console.log(SingleCategoryData);
-  const { img, category, description, price, ratings, name } =
+  const { _id, img, category, description, price, ratings, name } =
     SingleCategoryData;
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative">
@@ -41,14 +42,12 @@ export default function SingleCategory({ SingleCategoryData }) {
         <div className="hover:text-green-500 transition">
           <AiOutlineHeart />
         </div>
-        <div className="hover:text-green-500 transition">
-          {/* The button to open modal */}
-          <label htmlFor="my-modal-3" className="">
+        <Link to={`singleToyDetails/${_id}`}>
+          <div className="hover:text-green-500 transition">
             <AiOutlineEye />
-          </label>
-        </div>
+          </div>
+        </Link>
       </div>
-      <SingleToyDetails SingleCategoryData={SingleCategoryData} />
     </div>
   );
 }

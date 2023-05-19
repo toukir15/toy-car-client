@@ -1,20 +1,32 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 export default function Resister() {
   const { createUser } = useContext(AuthContext);
+
   const handleResister = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const url = form.url.value;
     console.log(email, password);
+
     createUser(email, password)
       .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: url,
+        })
+          .then(() => {
+            console.log("profile updated");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => console.log(error));
   };
@@ -57,6 +69,17 @@ export default function Resister() {
                   type="password"
                   placeholder="password"
                   name="password"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">URL</span>
+                </label>
+                <input
+                  type="url"
+                  placeholder="url"
+                  name="url"
                   className="input input-bordered"
                 />
                 <label className="label">
