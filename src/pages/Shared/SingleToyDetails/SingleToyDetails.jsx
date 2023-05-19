@@ -3,7 +3,7 @@ import Rating from "react-rating";
 import { useLoaderData } from "react-router-dom";
 
 export default function SingleToyDetails() {
-  const { img, name, Category, price, description } = useLoaderData();
+  const { img, name, category, price, description } = useLoaderData();
   return (
     <div className="h-screen container mx-auto">
       <a
@@ -19,7 +19,7 @@ export default function SingleToyDetails() {
           <h5 className=" text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             {name}
           </h5>
-          <p className="text-lg font-medium mb-4">{Category}</p>
+          <p className="text-lg font-medium mb-4">{category}</p>
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
             {description}
           </p>

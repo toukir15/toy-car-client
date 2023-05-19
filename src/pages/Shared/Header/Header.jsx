@@ -1,6 +1,14 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 export default function Header() {
+  const { user, logout } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogout = () => {
+    logout();
+  };
   return (
     <div>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -66,38 +74,53 @@ export default function Header() {
                   Blogs
                 </a>
               </li>
-              <li className="border-b-2 pb-2">
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  My Toys
-                </a>
-              </li>
-              <li className="border-b-2 pb-2">
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Add a Toys
-                </a>
-              </li>
+              {user ? (
+                <>
+                  <li className="border-b-2 pb-2">
+                    <a
+                      href="#"
+                      className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
+                    >
+                      My Toys
+                    </a>
+                  </li>
+                  <Link to="/addToy">
+                    <li className="border-b-2 pb-2">
+                      <a
+                        href="#"
+                        className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
+                      >
+                        Add a Toys
+                      </a>
+                    </li>
+                  </Link>
+                  <div>
+                    <img
+                      className="w-8 h-8 rounded-full"
+                      src={user.photoURL}
+                      alt="user photo"
+                    />
+                  </div>
+
+                  <button
+                    onClick={handleLogout}
+                    type="button"
+                    className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <Link to="/login">
+                  <button
+                    type="button"
+                    className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
+                  >
+                    Login
+                  </button>
+                </Link>
+              )}
             </ul>
-            <Link to="/login">
-              <button
-                type="button"
-                className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
-              >
-                Login
-              </button>
-            </Link>
-            <div>
-              <img
-                className="w-8 h-8 rounded-full"
-                src="/docs/images/people/profile-picture-3.jpg"
-                alt="user photo"
-              />
-            </div>
           </div>
         </div>
       </nav>
