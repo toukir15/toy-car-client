@@ -1,5 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import {
+  MdOutlineAddPhotoAlternate,
+  MdOutlineDriveFileRenameOutline,
+  MdProductionQuantityLimits,
+} from "react-icons/md";
+import { BiCategoryAlt, BiDollar } from "react-icons/bi";
+import { AiOutlineStar } from "react-icons/ai";
+import { TbFileDescription } from "react-icons/tb";
 
 export default function AddToy() {
   const { user } = useContext(AuthContext);
@@ -15,23 +23,13 @@ export default function AddToy() {
     const rating = form.rating.value;
     const available_quantity = form.available_quantity.value;
     const description = form.description.value;
-    // console.log(
-    //   url,
-    //   toyName,
-    //   sellerName,
-    //   sellerEmail,
-    //   sub_category,
-    //   price,
-    //   rating,
-    //   available_quantity,
-    //   description
-    // );
+
     const toyInfo = {
       img: url,
       name: toyName,
       seller_name: sellerName,
       seller_email: sellerEmail,
-      sub_category,
+      category: sub_category,
       price,
       rating,
       available_quantity,
@@ -61,27 +59,20 @@ export default function AddToy() {
               for="input-group-1"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Photo URL
+              Product Photo URL
             </label>
+            {/* className="w-5 h-5 text-gray-500 dark:text-gray-400" */}
             <div className="relative mb-6">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  aria-hidden="true"
-                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
+                <MdOutlineAddPhotoAlternate className="w-5 h-5 text-gray-500 dark:text-gray-400" />
               </div>
               <input
                 type="url"
                 name="url"
                 id="input-group-1"
+                required
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Photo URL"
+                placeholder="Product Photo URL"
               />
             </div>
           </div>
@@ -95,21 +86,13 @@ export default function AddToy() {
             </label>
             <div className="relative mb-6">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  aria-hidden="true"
-                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
+                <MdOutlineDriveFileRenameOutline className="w-5 h-5 text-gray-500 dark:text-gray-400" />
               </div>
               <input
                 type="text"
                 name="toy_name"
                 id="input-group-1"
+                required
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="toy name"
               />
@@ -125,16 +108,7 @@ export default function AddToy() {
             </label>
             <div className="relative mb-6">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  aria-hidden="true"
-                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
+                <MdOutlineDriveFileRenameOutline className="w-5 h-5 text-gray-500 dark:text-gray-400" />
               </div>
               <input
                 type="text"
@@ -187,23 +161,15 @@ export default function AddToy() {
             </label>
             <div className="relative mb-6">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  aria-hidden="true"
-                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
+                <BiCategoryAlt className="w-5 h-5 text-gray-500 dark:text-gray-400" />
               </div>
               <input
                 type="text"
                 name="sub_category"
                 id="input-group-1"
+                required
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="sub-category"
+                placeholder="sports/regular/truck"
               />
             </div>
           </div>
@@ -217,21 +183,13 @@ export default function AddToy() {
             </label>
             <div className="relative mb-6">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  aria-hidden="true"
-                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
+                <BiDollar className="w-5 h-5 text-gray-500 dark:text-gray-400" />
               </div>
               <input
                 type="number"
                 name="price"
                 id="input-group-1"
+                required
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="price"
               />
@@ -247,21 +205,13 @@ export default function AddToy() {
             </label>
             <div className="relative mb-6">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  aria-hidden="true"
-                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
+                <AiOutlineStar className="w-5 h-5 text-gray-500 dark:text-gray-400" />
               </div>
               <input
                 type="number"
                 name="rating"
                 id="input-group-1"
+                required
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="rating"
               />
@@ -277,16 +227,7 @@ export default function AddToy() {
             </label>
             <div className="relative mb-6">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  aria-hidden="true"
-                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
+                <MdProductionQuantityLimits className="w-5 h-5 text-gray-500 dark:text-gray-400" />
               </div>
               <input
                 type="number"
@@ -307,21 +248,13 @@ export default function AddToy() {
             </label>
             <div className="relative mb-6">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  aria-hidden="true"
-                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
+                <TbFileDescription className="w-5 h-5 text-gray-500 dark:text-gray-400" />
               </div>
               <input
                 type="text"
                 name="description"
                 id="input-group-1"
+                required
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="detail description"
               />

@@ -45,7 +45,7 @@ export default function SingleToy({ singleToyData }) {
 //     ratings: 4.2,
 //     description:
 //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolores delectus suscipit perspiciatis earum dignissimos reiciendis. Explicabo eum soluta architecto, molestias obcaecati, rerum tenetur quod impedit voluptate commodi, quas eos.",
-//     price: "$49.99",
+//     price: "49.99",
 //     name: "Velocity Racer",
 //     available_quantity: 20,
 //   },
@@ -57,7 +57,7 @@ export default function SingleToy({ singleToyData }) {
 //     ratings: 4.2,
 //     description:
 //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolores delectus suscipit perspiciatis earum dignissimos reiciendis. Explicabo eum soluta architecto, molestias obcaecati, rerum tenetur quod impedit voluptate commodi, quas eos.",
-//     price: "$49.99",
+//     price: "49.99",
 //     name: "Hot Wheels",
 //     available_quantity: 20,
 //   },
@@ -69,7 +69,7 @@ export default function SingleToy({ singleToyData }) {
 //     ratings: 4.2,
 //     description:
 //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolores delectus suscipit perspiciatis earum dignissimos reiciendis. Explicabo eum soluta architecto, molestias obcaecati, rerum tenetur quod impedit voluptate commodi, quas eos.",
-//     price: "$49.99",
+//     price: "49.99",
 //     name: "Lamborghini Aventador",
 //     available_quantity: 20,
 //   },
@@ -81,7 +81,7 @@ export default function SingleToy({ singleToyData }) {
 //     ratings: 4.2,
 //     description:
 //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolores delectus suscipit perspiciatis earum dignissimos reiciendis. Explicabo eum soluta architecto, molestias obcaecati, rerum tenetur quod impedit voluptate commodi, quas eos.",
-//     price: "$49.99",
+//     price: "49.99",
 //     name: "Matchbox",
 //     available_quantity: 20,
 //   },
@@ -93,7 +93,7 @@ export default function SingleToy({ singleToyData }) {
 //     ratings: 4.2,
 //     description:
 //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolores delectus suscipit perspiciatis earum dignissimos reiciendis. Explicabo eum soluta architecto, molestias obcaecati, rerum tenetur quod impedit voluptate commodi, quas eos.",
-//     price: "$49.99",
+//     price: "49.99",
 //     name: "Mini Motors",
 //     available_quantity: 20,
 //   },
@@ -105,7 +105,7 @@ export default function SingleToy({ singleToyData }) {
 //     ratings: 4.2,
 //     description:
 //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolores delectus suscipit perspiciatis earum dignissimos reiciendis. Explicabo eum soluta architecto, molestias obcaecati, rerum tenetur quod impedit voluptate commodi, quas eos.",
-//     price: "$49.99",
+//     price: "49.99",
 //     name: "Cadillac Eldorado",
 //     available_quantity: 20,
 //   },
@@ -117,7 +117,7 @@ export default function SingleToy({ singleToyData }) {
 //     ratings: 4.2,
 //     description:
 //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolores delectus suscipit perspiciatis earum dignissimos reiciendis. Explicabo eum soluta architecto, molestias obcaecati, rerum tenetur quod impedit voluptate commodi, quas eos.",
-//     price: "$49.99",
+//     price: "49.99",
 //     name: "Turntable Ladder",
 //     available_quantity: 20,
 //   },
@@ -129,7 +129,7 @@ export default function SingleToy({ singleToyData }) {
 //     ratings: 4.2,
 //     description:
 //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolores delectus suscipit perspiciatis earum dignissimos reiciendis. Explicabo eum soluta architecto, molestias obcaecati, rerum tenetur quod impedit voluptate commodi, quas eos.",
-//     price: "$49.99",
+//     price: "49.99",
 //     name: "Cable Transport",
 //     available_quantity: 20,
 //   },
@@ -141,7 +141,7 @@ export default function SingleToy({ singleToyData }) {
 //     ratings: 4.2,
 //     description:
 //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolores delectus suscipit perspiciatis earum dignissimos reiciendis. Explicabo eum soluta architecto, molestias obcaecati, rerum tenetur quod impedit voluptate commodi, quas eos.",
-//     price: "$49.99",
+//     price: "49.99",
 //     name: "Mercedes",
 //     available_quantity: 20,
 //   },

@@ -46,7 +46,7 @@ export default function Category() {
           />
         ))}
       </div>
-      <div className="flex justify-center mt-10 ">
+      <div className="flex justify-center  ">
         <button className="border-green-500 border-2 py-3 px-4 rounded-sm">
           See More
         </button>
