@@ -12,8 +12,25 @@ export default function MyToys() {
       .then((res) => res.json())
       .then((data) => setAllToysData(data));
   }, [user.email]);
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/cars/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          const remaining = allToysData.filter(
+            (toysData) => toysData._id !== id
+          );
+          console.log(remaining);
+          setAllToysData(remaining);
+        }
+      });
+  };
   return (
-    <div>
+    <div className="mt-10">
       <table className="table w-full">
         {/* head */}
         <thead>
@@ -34,6 +51,7 @@ export default function MyToys() {
             <SingleMyToy
               key={singleToyData._id}
               singleToyData={singleToyData}
+              handleDelete={handleDelete}
             />
           ))}
         </tbody>

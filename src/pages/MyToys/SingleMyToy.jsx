@@ -1,10 +1,31 @@
 import { Link } from "react-router-dom";
 
-export default function SingleMyToy({ singleToyData }) {
+export default function SingleMyToy({ singleToyData, handleDelete }) {
   const { img, name, Category, price, _id } = singleToyData;
+
   return (
     <tr>
-      <th></th>
+      <th>
+        <button
+          onClick={() => handleDelete(_id)}
+          className="btn btn-circle btn-sm bg-red-600 border-0"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </th>
       <td>
         <div className="flex items-center space-x-3">
           <div className="avatar">
@@ -28,8 +49,11 @@ export default function SingleMyToy({ singleToyData }) {
       <td>{price}</td>
       <th>
         <Link to={`/singleToyDetails/${_id}`}>
-          <button className="bg-green-500 text-white  py-2 px-4 rounded-md">
-            details
+          <button
+            onClick={handleUpdate}
+            className="bg-green-500 text-white  py-2 px-4 rounded-md"
+          >
+            Update
           </button>
         </Link>
       </th>
