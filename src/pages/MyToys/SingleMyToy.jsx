@@ -48,9 +48,9 @@ export default function SingleMyToy({ singleToyData, handleDelete }) {
       </td>
       <td>{price}</td>
       <th>
-        <Link to={`/singleToyDetails/${_id}`}>
+        <Link to={`/updateToys/${_id}`}>
           <button
-            onClick={handleUpdate}
+            // onClick={handleUpdate}
             className="bg-green-500 text-white  py-2 px-4 rounded-md"
           >
             Update

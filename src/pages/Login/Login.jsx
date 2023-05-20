@@ -48,15 +48,16 @@ export default function Login() {
                 />
                 <label className="label">
                   <p>New to this website?</p>
-                  <Link to="/resister">
-                    <a href="#" className="label-text-alt link link-hover ml-2">
-                      Please Resister
-                    </a>
+                  <Link
+                    to="/resister"
+                    className="text-green-500 ml-2 underline font-medium text-md"
+                  >
+                    Please Resister
                   </Link>
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn border-0 bg-green-500">Login</button>
               </div>
             </form>
           </div>

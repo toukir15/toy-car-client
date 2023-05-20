@@ -29,7 +29,19 @@ export default function MyToys() {
         }
       });
 
-    const handleupdate = (id) => {};
+    // const handleUpdate = (id) => {};
+
+    // fetch(`http://localhost:5000/cars/${_id}`, {
+    //   method: "PATCH",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(toyInfo),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //   });
   };
   return (
     <div className="mt-10">
@@ -54,6 +66,8 @@ export default function MyToys() {
               key={singleToyData._id}
               singleToyData={singleToyData}
               handleDelete={handleDelete}
+              // allToysData={allToysData}
+              // setAllToysData={setAllToysData}
             />
           ))}
         </tbody>

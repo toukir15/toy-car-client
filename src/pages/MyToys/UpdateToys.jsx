@@ -8,10 +8,21 @@ import {
 import { BiCategoryAlt, BiDollar } from "react-icons/bi";
 import { AiOutlineStar } from "react-icons/ai";
 import { TbFileDescription } from "react-icons/tb";
-import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
 
-export default function AddToy() {
+export default function UpdateToys() {
+  //   console.log(allToysData);
   const { user } = useContext(AuthContext);
+  const {
+    img,
+    name,
+    category,
+    price,
+    rating,
+    available_quantity,
+    description,
+    _id,
+  } = useLoaderData();
   const handleAddToy = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -36,8 +47,8 @@ export default function AddToy() {
       available_quantity,
       description,
     };
-    fetch("http://localhost:5000/cars", {
-      method: "POST",
+    fetch(`http://localhost:5000/cars/${_id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
@@ -45,14 +56,9 @@ export default function AddToy() {
     })
       .then((res) => res.json())
       .then((data) => {
-        // Swal.fire({
-        //   icon: "error",
-        //   title: "Oops...",
-        //   text: "Something went wrong!",
-        //   footer: '<a href="">Why do I have this issue?</a>',
-        // });
-        if (data.acknowledged === true) {
-          form.reset();
+        console.log(data);
+        if (data.modifyCount > 0) {
+          //   const remaining = allToysData.filter(toyData => toyData._id !== _id)
         }
       });
   };
@@ -61,7 +67,7 @@ export default function AddToy() {
     <div className="container mx-auto">
       <div className="flex justify-center ">
         <h2 className="text-4xl font-medium flex justify-center pb-2 w-52 my-8 border-b-2">
-          Add a Toy
+          Update Toy
         </h2>
       </div>
       <form onSubmit={handleAddToy}>
@@ -83,13 +89,14 @@ export default function AddToy() {
                 type="url"
                 name="url"
                 id="input-group-1"
+                defaultValue={img}
                 required
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Product Photo URL"
               />
             </div>
           </div>
-          {/* input 1  */}
+          {/* toy name */}
           <div>
             <label
               for="input-group-1"
@@ -105,6 +112,7 @@ export default function AddToy() {
                 type="text"
                 name="toy_name"
                 id="input-group-1"
+                defaultValue={name}
                 required
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="toy name"
@@ -133,7 +141,7 @@ export default function AddToy() {
               />
             </div>
           </div>
-          {/* input 1  */}
+          {/* Seller Email*/}
           <div>
             <label
               for="input-group-1"
@@ -164,7 +172,7 @@ export default function AddToy() {
               />
             </div>
           </div>
-          {/* input 1  */}
+          {/*Sub-Category  */}
           <div>
             <label
               for="input-group-1"
@@ -180,6 +188,7 @@ export default function AddToy() {
                 type="text"
                 name="sub_category"
                 id="input-group-1"
+                defaultValue={category}
                 required
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="sports/regular/truck"
@@ -202,6 +211,7 @@ export default function AddToy() {
                 type="number"
                 name="price"
                 id="input-group-1"
+                defaultValue={price}
                 required
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="price"
@@ -224,6 +234,7 @@ export default function AddToy() {
                 type="number"
                 name="rating"
                 id="input-group-1"
+                defaultValue={rating}
                 required
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="rating"
@@ -246,12 +257,14 @@ export default function AddToy() {
                 type="number"
                 name="available_quantity"
                 id="input-group-1"
+                required
+                defaultValue={available_quantity}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="available quantity"
               />
             </div>
           </div>
-          {/* input 1  */}
+          {/* description  */}
           <div>
             <label
               for="input-group-1"
@@ -268,6 +281,7 @@ export default function AddToy() {
                 name="description"
                 id="input-group-1"
                 required
+                defaultValue={description}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="detail description"
               />
@@ -275,7 +289,7 @@ export default function AddToy() {
           </div>
         </div>
         <button className="bg-green-500 py-2 rounded-md text-white text-lg font-medium w-full">
-          Add Toy
+          Update Toy
         </button>
       </form>
     </div>

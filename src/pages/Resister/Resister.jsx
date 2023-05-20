@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 export default function Resister() {
   const { createUser } = useContext(AuthContext);
@@ -34,7 +35,7 @@ export default function Resister() {
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col">
         <div className="text-center">
-          <h1 className="text-5xl font-bold">Login Resister!</h1>
+          <h1 className="text-5xl font-bold">Please Resister!</h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
@@ -84,18 +85,20 @@ export default function Resister() {
                 />
                 <label className="label">
                   <p>Already have an account?</p>
-                  <Link to="/login">
-                    <a href="#" className="label-text-alt link link-hover ml-2">
-                      Please Login
-                    </a>
+                  <Link
+                    to="/login"
+                    className="text-green-500 ml-2 underline font-medium text-md"
+                  >
+                    Please Login
                   </Link>
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Resister</button>
+                <button className="btn bg-green-500 border-0">Resister</button>
               </div>
             </form>
           </div>
+          <SocialLogin />
         </div>
       </div>
     </div>
