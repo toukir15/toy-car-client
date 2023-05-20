@@ -28,6 +28,8 @@ export default function MyToys() {
           setAllToysData(remaining);
         }
       });
+
+    const handleupdate = (id) => {};
   };
   return (
     <div className="mt-10">
