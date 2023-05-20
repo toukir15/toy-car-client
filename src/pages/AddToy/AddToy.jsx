@@ -8,10 +8,14 @@ import {
 import { BiCategoryAlt, BiDollar } from "react-icons/bi";
 import { AiOutlineStar } from "react-icons/ai";
 import { TbFileDescription } from "react-icons/tb";
+import { CarContext } from "../../providers/ToyProvider";
+import ButtonLoading from "../../ui/ButtonLoading";
 // import Swal from "sweetalert2";
 
 export default function AddToy() {
   const { user } = useContext(AuthContext);
+  const { addToy } = useContext(CarContext);
+  const { function: addToyFN, data, isLoading, isError } = addToy || {};
   const handleAddToy = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -36,19 +40,8 @@ export default function AddToy() {
       available_quantity,
       description,
     };
-    fetch("http://localhost:5000/cars", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(toyInfo),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged === true) {
-          // form.reset();
-        }
-      });
+    addToyFN(toyInfo);
+    form.rest();
   };
 
   return (
@@ -59,6 +52,11 @@ export default function AddToy() {
         </h2>
       </div>
       <form onSubmit={handleAddToy}>
+        {isError && (
+          <div className="w-full my-3 px-5 py-2.5 text-base font-medium rounded-lg bg-[#ffd6d6] text-[#cd3131]">
+            {isError}
+          </div>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5">
           {/* picture */}
           <div>
@@ -241,8 +239,17 @@ export default function AddToy() {
             </div>
           </div>
         </div>
-        <button className="bg-green-500 py-2 rounded-md text-white text-lg font-medium w-full">
-          Add Toy
+        <button
+          disabled={isLoading}
+          className="bg-green-500 py-2 rounded-md text-white text-lg font-medium w-full"
+        >
+          {!isLoading ? (
+            "Add Toy"
+          ) : (
+            <div className="w-full flex justify-center items-center">
+              <ButtonLoading />
+            </div>
+          )}
         </button>
       </form>
     </div>

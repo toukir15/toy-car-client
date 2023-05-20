@@ -60,9 +60,84 @@ export default function CarProvider({ children }) {
     isError: isDeleteError,
   };
 
+  // handle toy add function
+  const [addData, setAddData] = useState([]);
+  const [addLoading, setAddLoading] = useState(false);
+  const [addError, setAddError] = useState("");
+
+  const handleAddToy = (data) => {
+    setAddLoading(true);
+    fetch("http://localhost:5000/cars", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged === true) {
+          setAllToysData((allData) => [...allData, data.data]);
+          setAddData(data.data);
+          setAddLoading(false);
+        }
+      })
+      .catch((error) => {
+        setAddError(error?.message);
+        setAddLoading(false);
+      });
+  };
+
+  const addToy = {
+    function: handleAddToy,
+    data: addData,
+    isError: addError,
+    isLoading: addLoading,
+  };
+
+  // handle toy edit function
+  const [updateData, setUpdateData] = useState([]);
+  const [updateLoading, setUpdateLoading] = useState(false);
+  const [updateError, setUpdateError] = useState("");
+
+  const handleUpdateToy = (id, data) => {
+    setUpdateLoading(true);
+    fetch(`http://localhost:5000/cars/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          console.log(data);
+          const remaining = allToysData.filter((toy) => toy._id !== id);
+          const updateData = [...remaining, data.data];
+          setAllToysData(updateData);
+          setUpdateLoading(false);
+        }
+      })
+      .catch((error) => {
+        setUpdateError(error.message);
+        setUpdateLoading(false);
+      });
+  };
+
+  const updateToy = {
+    function: handleUpdateToy,
+    data: updateData,
+    isLoading: updateLoading,
+    isError: updateError,
+  };
+
   const carInfo = {
     allCarData,
     deleteSingleCar,
+    addToy,
+    updateToy,
   };
   return <CarContext.Provider value={carInfo}>{children}</CarContext.Provider>;
 }

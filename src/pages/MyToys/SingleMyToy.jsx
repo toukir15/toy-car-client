@@ -22,7 +22,7 @@ export default function SingleMyToy({ singleToyData }) {
             handleDeleteCar(_id);
             setLoading(true);
           }}
-          disabled={isLoading}
+          disabled={isLoading && loading}
           className="btn btn-circle btn-sm bg-red-600 border-0"
         >
           {!loading && (

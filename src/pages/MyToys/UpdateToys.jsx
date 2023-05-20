@@ -9,9 +9,14 @@ import { BiCategoryAlt, BiDollar } from "react-icons/bi";
 import { AiOutlineStar } from "react-icons/ai";
 import { TbFileDescription } from "react-icons/tb";
 import { useLoaderData } from "react-router-dom";
+import { CarContext } from "../../providers/ToyProvider";
+import ButtonLoading from "../../ui/ButtonLoading";
 
 export default function UpdateToys() {
   const { user } = useContext(AuthContext);
+  const { updateToy } = useContext(CarContext);
+
+  const { function: handleUpdateToy, data, isError, isLoading } = updateToy;
 
   const {
     img,
@@ -23,14 +28,6 @@ export default function UpdateToys() {
     description,
     _id,
   } = useLoaderData();
-
-  const [myToysData, setMyToysData] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/cars?email=${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setMyToysData(data));
-  }, [user]);
 
   const handleAddToy = (event) => {
     event.preventDefault();
@@ -56,24 +53,7 @@ export default function UpdateToys() {
       available_quantity,
       description,
     };
-
-    fetch(`http://localhost:5000/cars/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(toyInfo),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount > 0) {
-          const remaining = myToysData.filter((myToy) => myToy._id !== _id);
-          const updatedOne = myToysData.find((myToy) => myToy._id === _id);
-          console.log(updatedOne);
-          // console.log(remaining);
-        }
-      });
+    handleUpdateToy(_id, toyInfo);
   };
 
   return (
@@ -84,6 +64,11 @@ export default function UpdateToys() {
         </h2>
       </div>
       <form onSubmit={handleAddToy}>
+        {isError && (
+          <div className="w-full my-3 px-5 py-2.5 text-base font-medium rounded-lg bg-[#ffd6d6] text-[#cd3131]">
+            {isError}
+          </div>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5">
           {/* picture */}
           <div>
@@ -275,7 +260,13 @@ export default function UpdateToys() {
           </div>
         </div>
         <button className="bg-green-500 py-2 rounded-md text-white text-lg font-medium w-full">
-          Update Toy
+          {!isLoading ? (
+            "Update Toy"
+          ) : (
+            <div className="w-full flex justify-center items-center">
+              <ButtonLoading />
+            </div>
+          )}
         </button>
       </form>
     </div>

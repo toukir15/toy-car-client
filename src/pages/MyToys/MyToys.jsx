@@ -15,7 +15,11 @@ export default function MyToys() {
     content = <div>Something is wrong</div>;
   }
   if (!isLoading && allToysData.length == 0) {
-    content = <div>no product found</div>;
+    content = (
+      <div className="text-3xl font-medium h-[calc(100vh_-_9.5rem)] w-screen flex justify-center items-center capitalize">
+        no product found
+      </div>
+    );
   }
   if (!isLoading && allToysData.length > 0) {
     content = allToysData.map((singleToyData) => (
