@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import {
   MdOutlineAddPhotoAlternate,
@@ -11,8 +11,8 @@ import { TbFileDescription } from "react-icons/tb";
 import { useLoaderData } from "react-router-dom";
 
 export default function UpdateToys() {
-  //   console.log(allToysData);
   const { user } = useContext(AuthContext);
+
   const {
     img,
     name,
@@ -23,6 +23,15 @@ export default function UpdateToys() {
     description,
     _id,
   } = useLoaderData();
+
+  const [myToysData, setMyToysData] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/cars?email=${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setMyToysData(data));
+  }, [user]);
+
   const handleAddToy = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -47,6 +56,7 @@ export default function UpdateToys() {
       available_quantity,
       description,
     };
+
     fetch(`http://localhost:5000/cars/${_id}`, {
       method: "PATCH",
       headers: {
@@ -57,8 +67,11 @@ export default function UpdateToys() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.modifyCount > 0) {
-          //   const remaining = allToysData.filter(toyData => toyData._id !== _id)
+        if (data.modifiedCount > 0) {
+          const remaining = myToysData.filter((myToy) => myToy._id !== _id);
+          const updatedOne = myToysData.find((myToy) => myToy._id === _id);
+          console.log(updatedOne);
+          // console.log(remaining);
         }
       });
   };
@@ -74,10 +87,7 @@ export default function UpdateToys() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5">
           {/* picture */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Product Photo URL
             </label>
             {/* className="w-5 h-5 text-gray-500 dark:text-gray-400" */}
@@ -98,10 +108,7 @@ export default function UpdateToys() {
           </div>
           {/* toy name */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Toy Name
             </label>
             <div className="relative mb-6">
@@ -121,10 +128,7 @@ export default function UpdateToys() {
           </div>
           {/* input 1  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Seller Name
             </label>
             <div className="relative mb-6">
@@ -143,10 +147,7 @@ export default function UpdateToys() {
           </div>
           {/* Seller Email*/}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Seller Email
             </label>
             <div className="relative mb-6">
@@ -174,10 +175,7 @@ export default function UpdateToys() {
           </div>
           {/*Sub-Category  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Sub-Category
             </label>
             <div className="relative mb-6">
@@ -197,10 +195,7 @@ export default function UpdateToys() {
           </div>
           {/* input 1  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Price
             </label>
             <div className="relative mb-6">
@@ -220,10 +215,7 @@ export default function UpdateToys() {
           </div>
           {/* input 1  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Rating
             </label>
             <div className="relative mb-6">
@@ -243,10 +235,7 @@ export default function UpdateToys() {
           </div>
           {/* input 1  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Available Quantity
             </label>
             <div className="relative mb-6">
@@ -266,10 +255,7 @@ export default function UpdateToys() {
           </div>
           {/* description  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Details Description
             </label>
             <div className="relative mb-6">

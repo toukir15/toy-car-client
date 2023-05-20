@@ -1,31 +1,48 @@
+import { useContext, useState } from "react";
 import { BiEdit } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { CarContext } from "../../providers/ToyProvider";
+import ButtonLoading from "../../ui/ButtonLoading";
 
-export default function SingleMyToy({ singleToyData, handleDelete }) {
+export default function SingleMyToy({ singleToyData }) {
+  const { deleteSingleCar } = useContext(CarContext);
+  const {
+    function: handleDeleteCar,
+    isLoading,
+    isError,
+  } = deleteSingleCar || {};
   const { img, name, Category, price, _id, seller_name, seller_email } =
-    singleToyData;
-
+    singleToyData || {};
+  const [loading, setLoading] = useState(false);
   return (
     <tr>
       <th>
         <button
-          onClick={() => handleDelete(_id)}
+          onClick={() => {
+            handleDeleteCar(_id);
+            setLoading(true);
+          }}
+          disabled={isLoading}
           className="btn btn-circle btn-sm bg-red-600 border-0"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          {!loading && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          )}
+
+          {isLoading && loading && <ButtonLoading />}
         </button>
       </th>
       <td>

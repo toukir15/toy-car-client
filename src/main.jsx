@@ -3,9 +3,12 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes/routes.jsx";
 import AuthProvider from "./providers/AuthProvider";
+import CarProvider from "./providers/ToyProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthProvider>
-    <RouterProvider router={router} />
+    <CarProvider>
+      <RouterProvider router={router} />
+    </CarProvider>
   </AuthProvider>
 );

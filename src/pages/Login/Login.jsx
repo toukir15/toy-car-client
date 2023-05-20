@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
@@ -6,7 +6,13 @@ import { AuthContext } from "../../providers/AuthProvider";
 export default function Login() {
   const { loginUser, setError, setSuccess, success, error } =
     useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.pathName || "/";
+
   const handleLogin = (event) => {
+    event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
@@ -19,6 +25,7 @@ export default function Login() {
         const loggedUser = result.user;
         console.log(loggedUser);
         setSuccess("User Login Successfully!!!");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
@@ -39,7 +46,7 @@ export default function Login() {
                   <span className="label-text">Email</span>
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   placeholder="email"
                   name="email"
                   className="input input-bordered"

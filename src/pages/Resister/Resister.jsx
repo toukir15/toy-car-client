@@ -50,7 +50,7 @@ export default function Resister() {
           <h1 className="text-5xl font-bold">Please Resister!</h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div className="card-body">
+          <div className="card-body pb-0">
             <form onSubmit={handleResister}>
               <div className="form-control">
                 <label className="label">

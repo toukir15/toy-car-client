@@ -5,13 +5,23 @@ import { useState } from "react";
 export default function AllToys() {
   const allToysData = useLoaderData();
   const [query, setQuery] = useState("");
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const handleSearch = (e) => {
+    const getData = setTimeout(() => {
+      setQuery(e.target.value);
+    }, 1500);
+
+    return () => clearTimeout(getData);
+  };
   return (
     <div className="overflow-x-auto w-full">
       <div className="w-2/4 ml-28 my-4">
-        <form className="flex items-center">
-          <label for="simple-search" className="sr-only">
-            Search
-          </label>
+        <form onSubmit={handleOnSubmit} className="flex items-center">
+          <label className="sr-only">Search</label>
           <div className="relative w-full">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
@@ -29,7 +39,7 @@ export default function AllToys() {
               </svg>
             </div>
             <input
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={handleSearch}
               type="text"
               id="simple-search"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

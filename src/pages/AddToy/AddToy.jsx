@@ -8,7 +8,7 @@ import {
 import { BiCategoryAlt, BiDollar } from "react-icons/bi";
 import { AiOutlineStar } from "react-icons/ai";
 import { TbFileDescription } from "react-icons/tb";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 export default function AddToy() {
   const { user } = useContext(AuthContext);
@@ -45,14 +45,8 @@ export default function AddToy() {
     })
       .then((res) => res.json())
       .then((data) => {
-        // Swal.fire({
-        //   icon: "error",
-        //   title: "Oops...",
-        //   text: "Something went wrong!",
-        //   footer: '<a href="">Why do I have this issue?</a>',
-        // });
         if (data.acknowledged === true) {
-          form.reset();
+          // form.reset();
         }
       });
   };
@@ -68,10 +62,7 @@ export default function AddToy() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5">
           {/* picture */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Product Photo URL
             </label>
             {/* className="w-5 h-5 text-gray-500 dark:text-gray-400" */}
@@ -91,10 +82,7 @@ export default function AddToy() {
           </div>
           {/* input 1  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Toy Name
             </label>
             <div className="relative mb-6">
@@ -113,10 +101,7 @@ export default function AddToy() {
           </div>
           {/* input 1  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Seller Name
             </label>
             <div className="relative mb-6">
@@ -135,10 +120,7 @@ export default function AddToy() {
           </div>
           {/* input 1  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Seller Email
             </label>
             <div className="relative mb-6">
@@ -166,10 +148,7 @@ export default function AddToy() {
           </div>
           {/* input 1  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Sub-Category
             </label>
             <div className="relative mb-6">
@@ -188,10 +167,7 @@ export default function AddToy() {
           </div>
           {/* input 1  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Price
             </label>
             <div className="relative mb-6">
@@ -210,10 +186,7 @@ export default function AddToy() {
           </div>
           {/* input 1  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Rating
             </label>
             <div className="relative mb-6">
@@ -232,10 +205,7 @@ export default function AddToy() {
           </div>
           {/* input 1  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Available Quantity
             </label>
             <div className="relative mb-6">
@@ -253,10 +223,7 @@ export default function AddToy() {
           </div>
           {/* input 1  */}
           <div>
-            <label
-              for="input-group-1"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Details Description
             </label>
             <div className="relative mb-6">

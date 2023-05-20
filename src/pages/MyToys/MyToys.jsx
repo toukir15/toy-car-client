@@ -1,48 +1,28 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import SingleMyToy from "./SingleMyToy";
-import { AuthContext } from "../../providers/AuthProvider";
+import { CarContext } from "../../providers/ToyProvider";
 
 export default function MyToys() {
-  const [allToysData, setAllToysData] = useState([]);
-  const { user } = useContext(AuthContext);
-  console.log(user.email);
+  const { allCarData } = useContext(CarContext);
+  const { data: allToysData, isLoading, isError } = allCarData || {};
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/cars?email=${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setAllToysData(data));
-  }, [user.email]);
+  // decide what to render
+  let content = null;
+  if (isLoading) {
+    content = <div>loading...</div>;
+  }
+  if (!isLoading && isError) {
+    content = <div>Something is wrong</div>;
+  }
+  if (!isLoading && allToysData.length == 0) {
+    content = <div>no product found</div>;
+  }
+  if (!isLoading && allToysData.length > 0) {
+    content = allToysData.map((singleToyData) => (
+      <SingleMyToy key={singleToyData._id} singleToyData={singleToyData} />
+    ));
+  }
 
-  const handleDelete = (id) => {
-    fetch(`http://localhost:5000/cars/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.deletedCount > 0) {
-          const remaining = allToysData.filter(
-            (toysData) => toysData._id !== id
-          );
-          console.log(remaining);
-          setAllToysData(remaining);
-        }
-      });
-
-    // const handleUpdate = (id) => {};
-
-    // fetch(`http://localhost:5000/cars/${_id}`, {
-    //   method: "PATCH",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(toyInfo),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //   });
-  };
   return (
     <div className="mt-10">
       <table className="table w-full">
@@ -57,17 +37,7 @@ export default function MyToys() {
             <th></th>
           </tr>
         </thead>
-        <tbody>
-          {allToysData.map((singleToyData) => (
-            <SingleMyToy
-              key={singleToyData._id}
-              singleToyData={singleToyData}
-              handleDelete={handleDelete}
-              // allToysData={allToysData}
-              // setAllToysData={setAllToysData}
-            />
-          ))}
-        </tbody>
+        <tbody>{content}</tbody>
       </table>
     </div>
   );
