@@ -1,17 +1,35 @@
 import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 export default function SocialLogin() {
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, githubSignIn, setSuccess, setError } =
+    useContext(AuthContext);
+
+  // google singIn
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        setSuccess("User Successfully SignIn with Google");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
+  // github signIn
+  const handleGithubSignIn = () => {
+    githubSignIn()
+      .then((result) => {
+        console.log(result.user);
+        setSuccess("User Successfully SignIn with Github");
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
   };
   return (
     <div className="flex flex-col w-full border-opacity-50">
@@ -23,7 +41,10 @@ export default function SocialLogin() {
         >
           <FcGoogle className="text-2xl " />
         </div>
-        <div className="border p-3 rounded-full shadow-md cursor-pointer">
+        <div
+          onClick={handleGithubSignIn}
+          className="border p-3 rounded-full shadow-md cursor-pointer"
+        >
           <BsGithub className="text-2xl " />
         </div>
       </div>

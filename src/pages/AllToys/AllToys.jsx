@@ -1,8 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import SingleToy from "./SingleToy";
+import { useState } from "react";
 
 export default function AllToys() {
   const allToysData = useLoaderData();
+  const [query, setQuery] = useState("");
   return (
     <div className="overflow-x-auto w-full">
       <div className="w-2/4 ml-28 my-4">
@@ -27,6 +29,7 @@ export default function AllToys() {
               </svg>
             </div>
             <input
+              onChange={(e) => setQuery(e.target.value)}
               type="text"
               id="simple-search"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -60,21 +63,23 @@ export default function AllToys() {
         {/* head */}
         <thead>
           <tr>
-            <th>
-              <label>
-                <input type="checkbox" className="checkbox" />
-              </label>
-            </th>
+            <th></th>
             <th>Cars</th>
-            <th>Job</th>
+            <th>Seller</th>
             <th>Price</th>
+            <th>Details</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {allToysData.map((singleToyData) => (
-            <SingleToy key={singleToyData._id} singleToyData={singleToyData} />
-          ))}
+          {allToysData
+            .filter((toyData) => toyData.name.toLowerCase().includes(query))
+            .map((singleToyData) => (
+              <SingleToy
+                key={singleToyData._id}
+                singleToyData={singleToyData}
+              />
+            ))}
         </tbody>
       </table>
     </div>

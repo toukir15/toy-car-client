@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 export default function Header() {
   const { user, logout } = useContext(AuthContext);
+  const [navItem, setNavItem] = useState("home");
 
   const handleLogout = () => {
     logout();
@@ -14,7 +15,7 @@ export default function Header() {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="https://flowbite.com/" className="flex items-center">
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Flowbite
+              ToyCarsWorld
             </span>
           </a>
           <button
@@ -45,17 +46,31 @@ export default function Header() {
           >
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-500">
               <Link to="/">
-                <li className="border-b-2 pb-2">
+                <li
+                  onClick={() => setNavItem("home")}
+                  className={`${
+                    navItem === "home"
+                      ? "border-b-2 border-b-green-500"
+                      : "border-b-2"
+                  }  pb-2`}
+                >
                   <a
                     href="#"
-                    className="block py-2 pl-3 pr-4 text-white bg-green-500 rounded md:bg-transparent md:text-green-500 md:p-0 dark:text-white md:dark:text-green-500"
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
                     aria-current="page"
                   >
                     Home
                   </a>
                 </li>
               </Link>
-              <li className="border-b-2 pb-2">
+              <li
+                onClick={() => setNavItem("All Toys")}
+                className={`${
+                  navItem === "All Toys"
+                    ? "border-b-2 border-b-green-500"
+                    : "border-b-2"
+                }  pb-2`}
+              >
                 <Link to="/allToys">
                   <a
                     href="#"
@@ -65,7 +80,14 @@ export default function Header() {
                   </a>
                 </Link>
               </li>
-              <li className="border-b-2 pb-2">
+              <li
+                onClick={() => setNavItem("Blog")}
+                className={`${
+                  navItem === "Blog"
+                    ? "border-b-2 border-b-green-500"
+                    : "border-b-2"
+                }  pb-2`}
+              >
                 <a
                   href="#"
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
@@ -76,7 +98,14 @@ export default function Header() {
               {user ? (
                 <>
                   <Link to="/myToys">
-                    <li className="border-b-2 pb-2">
+                    <li
+                      onClick={() => setNavItem("My Toys")}
+                      className={`${
+                        navItem === "My Toys"
+                          ? "border-b-2 border-b-green-500"
+                          : "border-b-2"
+                      }  pb-2`}
+                    >
                       <a
                         href="#"
                         className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
@@ -86,7 +115,14 @@ export default function Header() {
                     </li>
                   </Link>
                   <Link to="/addToy">
-                    <li className="border-b-2 pb-2">
+                    <li
+                      onClick={() => setNavItem("Add Toy")}
+                      className={`${
+                        navItem === "Add Toy"
+                          ? "border-b-2 border-b-green-500"
+                          : "border-b-2"
+                      }  pb-2`}
+                    >
                       <a
                         href="#"
                         className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"

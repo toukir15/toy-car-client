@@ -1,7 +1,9 @@
+import { BiDetail } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 export default function SingleToy({ singleToyData }) {
-  const { img, name, Category, price, _id } = singleToyData;
+  const { img, name, Category, price, _id, seller_name, seller_email } =
+    singleToyData;
   return (
     <tr>
       <th></th>
@@ -19,17 +21,15 @@ export default function SingleToy({ singleToyData }) {
         </div>
       </td>
       <td>
-        Zemlak, Daniel and Leannon
+        {seller_name}
         <br />
-        <span className="badge badge-ghost badge-sm">
-          Desktop Support Technician
-        </span>
+        <span className="badge badge-ghost badge-sm">{seller_email}</span>
       </td>
-      <td>{price}</td>
+      <td>$ {price}</td>
       <th>
         <Link to={`/singleToyDetails/${_id}`}>
           <button className="bg-green-500 text-white  py-2 px-4 rounded-md">
-            details
+            <BiDetail />
           </button>
         </Link>
       </th>

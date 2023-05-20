@@ -1,7 +1,9 @@
+import { BiEdit } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 export default function SingleMyToy({ singleToyData, handleDelete }) {
-  const { img, name, Category, price, _id } = singleToyData;
+  const { img, name, Category, price, _id, seller_name, seller_email } =
+    singleToyData;
 
   return (
     <tr>
@@ -40,20 +42,18 @@ export default function SingleMyToy({ singleToyData, handleDelete }) {
         </div>
       </td>
       <td>
-        Zemlak, Daniel and Leannon
+        {seller_name}
         <br />
-        <span className="badge badge-ghost badge-sm">
-          Desktop Support Technician
-        </span>
+        <span className="badge badge-ghost badge-sm">{seller_email}</span>
       </td>
-      <td>{price}</td>
+      <td>$ {price}</td>
       <th>
         <Link to={`/updateToys/${_id}`}>
           <button
             // onClick={handleUpdate}
             className="bg-green-500 text-white  py-2 px-4 rounded-md"
           >
-            Update
+            <BiEdit />
           </button>
         </Link>
       </th>

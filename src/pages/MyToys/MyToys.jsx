@@ -49,14 +49,11 @@ export default function MyToys() {
         {/* head */}
         <thead>
           <tr>
-            <th>
-              <label>
-                <input type="checkbox" className="checkbox" />
-              </label>
-            </th>
+            <th>Delete</th>
             <th>Cars</th>
-            <th>Job</th>
+            <th>seller</th>
             <th>Price</th>
+            <th>Update</th>
             <th></th>
           </tr>
         </thead>

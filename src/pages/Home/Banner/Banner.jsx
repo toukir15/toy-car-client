@@ -7,9 +7,9 @@ export default function Banner() {
       >
         <img
           src={
-            "https://img.freepik.com/free-photo/green-easter-car-with-eggs-copy-space_23-2149301298.jpg?w=1480&t=st=1684354161~exp=1684354761~hmac=d9210ee5f7cf1126caa4aa81e2d64a22ac32402bf28e5f25166c91f6a45164b1"
+            "https://cdn.pixabay.com/photo/2018/02/03/13/32/traffic-3127659_1280.jpg"
           }
-          className="w-full"
+          className="w-full object-fill"
         />
         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
           <a href="#slide4" className="btn btn-circle">

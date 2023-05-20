@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 // import SportsCar from "./SingleCategory";
 // import RegularCar from "./RegularCar";
 import SingleCategory from "./SingleCategory";
+import { BsBookmark } from "react-icons/bs";
 
 export default function Category() {
   const [category, setCategory] = useState("sports");
@@ -20,21 +21,33 @@ export default function Category() {
       <div className="flex justify-center gap-8 text-lg font-medium">
         <p
           onClick={() => setCategory("sports")}
-          className="border-b-2 pb-2 cursor-pointer hover:text-green-500 transition"
+          className={`${
+            category === "sports"
+              ? "border-b-2 border-b-green-500"
+              : "border-b-2"
+          } pb-2 cursor-pointer hover:text-green-500 transition flex items-center gap-1`}
         >
-          Sports
+          <BsBookmark /> Sports
         </p>
         <p
           onClick={() => setCategory("regular")}
-          className="border-b-2 pb-2 cursor-pointer hover:text-green-500 transition"
+          className={`${
+            category === "regular"
+              ? "border-b-2 border-b-green-500"
+              : "border-b-2"
+          } pb-2 cursor-pointer hover:text-green-500 transition flex items-center gap-1`}
         >
-          Regular
+          <BsBookmark /> Regular
         </p>
         <p
           onClick={() => setCategory("truck")}
-          className="border-b-2 pb-2 cursor-pointer hover:text-green-500 transition"
+          className={`${
+            category === "truck"
+              ? "border-b-2 border-b-green-500"
+              : "border-b-2"
+          } pb-2 cursor-pointer hover:text-green-500 transition flex items-center gap-1`}
         >
-          Truck
+          <BsBookmark /> Truck
         </p>
       </div>
       {/* sports  */}

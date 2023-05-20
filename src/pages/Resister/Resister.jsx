@@ -5,7 +5,8 @@ import { updateProfile } from "firebase/auth";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 export default function Resister() {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, setError, setSuccess, success, error } =
+    useContext(AuthContext);
 
   const handleResister = (event) => {
     event.preventDefault();
@@ -15,6 +16,13 @@ export default function Resister() {
     const password = form.password.value;
     const url = form.url.value;
     console.log(email, password);
+    setSuccess("");
+    setError("");
+
+    if (password.length < 6) {
+      setError("Password is less than 6 character");
+      return;
+    }
 
     createUser(email, password)
       .then((result) => {
@@ -24,12 +32,16 @@ export default function Resister() {
         })
           .then(() => {
             console.log("profile updated");
+            setSuccess("User Successfully SignUp With Email!!!");
           })
           .catch((error) => {
             console.log(error);
+            setError(error.message);
           });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setError(error.message);
+      });
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -87,7 +99,7 @@ export default function Resister() {
                   <p>Already have an account?</p>
                   <Link
                     to="/login"
-                    className="text-green-500 ml-2 underline font-medium text-md"
+                    className="text-green-500 ml-0 underline font-medium text-md"
                   >
                     Please Login
                   </Link>
@@ -95,6 +107,13 @@ export default function Resister() {
               </div>
               <div className="form-control mt-6">
                 <button className="btn bg-green-500 border-0">Resister</button>
+              </div>
+              <div className="mt-4">
+                {success ? (
+                  <p className="text-green-500">{success}</p>
+                ) : (
+                  <p className="text-red-500">{error}</p>
+                )}
               </div>
             </form>
           </div>

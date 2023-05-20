@@ -4,17 +4,26 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 export default function Login() {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, setError, setSuccess, success, error } =
+    useContext(AuthContext);
   const handleLogin = (event) => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+
+    setSuccess("");
+    setError("");
+
     loginUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        setSuccess("User Login Successfully!!!");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setError(error.message);
+        console.log(error);
+      });
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -41,7 +50,7 @@ export default function Login() {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   placeholder="password"
                   name="password"
                   className="input input-bordered"
@@ -58,6 +67,13 @@ export default function Login() {
               </div>
               <div className="form-control mt-6">
                 <button className="btn border-0 bg-green-500">Login</button>
+              </div>
+              <div className="mt-4">
+                {success ? (
+                  <p className="text-green-500">{success}</p>
+                ) : (
+                  <p className="text-red-500">{error}</p>
+                )}
               </div>
             </form>
           </div>
