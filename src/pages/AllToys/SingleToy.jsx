@@ -48,6 +48,8 @@ export default function SingleToy({ singleToyData }) {
 //     price: "49.99",
 //     name: "Velocity Racer",
 //     available_quantity: 20,
+//     discount: 8,
+//     sale_status: "Flash",
 //   },
 //   {
 //     img: "https://cdn.pixabay.com/photo/2020/01/18/19/47/toys-4776279_1280.jpg",
@@ -60,6 +62,8 @@ export default function SingleToy({ singleToyData }) {
 //     price: "49.99",
 //     name: "Hot Wheels",
 //     available_quantity: 20,
+//     discount: 8,
+//     sale_status: "Flash",
 //   },
 //   {
 //     img: "https://cdn.pixabay.com/photo/2020/01/18/19/47/toys-4776279_1280.jpg",
@@ -72,6 +76,8 @@ export default function SingleToy({ singleToyData }) {
 //     price: "49.99",
 //     name: "Lamborghini Aventador",
 //     available_quantity: 20,
+//     discount: 8,
+//     sale_status: "Flash",
 //   },
 //   {
 //     img: "https://cdn.pixabay.com/photo/2020/07/19/09/03/mazda-5419417_1280.jpg",
@@ -84,6 +90,8 @@ export default function SingleToy({ singleToyData }) {
 //     price: "49.99",
 //     name: "Matchbox",
 //     available_quantity: 20,
+//     discount: 8,
+//     sale_status: "non-flash",
 //   },
 //   {
 //     img: "https://cdn.pixabay.com/photo/2020/07/19/09/03/mazda-5419417_1280.jpg",
@@ -96,6 +104,8 @@ export default function SingleToy({ singleToyData }) {
 //     price: "49.99",
 //     name: "Mini Motors",
 //     available_quantity: 20,
+//     discount: 8,
+//     sale_status: "non-flash",
 //   },
 //   {
 //     img: "https://cdn.pixabay.com/photo/2020/07/19/09/03/mazda-5419417_1280.jpg",
@@ -108,6 +118,8 @@ export default function SingleToy({ singleToyData }) {
 //     price: "49.99",
 //     name: "Cadillac Eldorado",
 //     available_quantity: 20,
+//     discount: 8,
+//     sale_status: "non-flash",
 //   },
 //   {
 //     img: "https://cdn.pixabay.com/photo/2022/01/16/11/01/model-car-6941721_1280.jpg",
@@ -120,6 +132,8 @@ export default function SingleToy({ singleToyData }) {
 //     price: "49.99",
 //     name: "Turntable Ladder",
 //     available_quantity: 20,
+//     discount: 8,
+//     sale_status: "non-flash",
 //   },
 //   {
 //     img: "https://cdn.pixabay.com/photo/2022/01/16/11/01/model-car-6941721_1280.jpg",
@@ -132,6 +146,8 @@ export default function SingleToy({ singleToyData }) {
 //     price: "49.99",
 //     name: "Cable Transport",
 //     available_quantity: 20,
+//     discount: 8,
+//     sale_status: "non-flash",
 //   },
 //   {
 //     img: "https://cdn.pixabay.com/photo/2017/10/17/18/22/model-car-2861651_1280.jpg",
@@ -144,5 +160,7 @@ export default function SingleToy({ singleToyData }) {
 //     price: "49.99",
 //     name: "Mercedes",
 //     available_quantity: 20,
+//     discount: 8,
+//     sale_status: "non-flash",
 //   },
 // ];
