@@ -6,13 +6,14 @@ import {
   AiOutlineShoppingCart,
   AiOutlineStar,
 } from "react-icons/ai";
-import SingleToyDetails from "../../Shared/SingleToyDetails/SingleToyDetails";
 import { Link } from "react-router-dom";
 import { BiDollar } from "react-icons/bi";
+import { toast } from "react-toastify";
 
 export default function SingleCategory({ SingleCategoryData }) {
   const { _id, img, category, description, price, ratings, name } =
     SingleCategoryData;
+  const notify = () => toast("Wow so easy !");
   return (
     <div className="max-w-sm mb-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 group/card">
       <div className="relative w-full h-[16.6rem] overflow-hidden ">
@@ -21,11 +22,11 @@ export default function SingleCategory({ SingleCategoryData }) {
           <div className="hover:text-green-500 transition">
             <AiOutlineShoppingCart />
           </div>
-          <div className="hover:text-green-500 transition">
+          <div onClick={notify} className="hover:text-green-500 transition">
             <AiOutlineHeart />
           </div>
           <Link to={`singleToyDetails/${_id}`}>
-            <div className="hover:text-green-500 transition">
+            <div onClick={notify} className="hover:text-green-500 transition">
               <AiOutlineEye />
             </div>
           </Link>

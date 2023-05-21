@@ -53,7 +53,10 @@ export default function Category() {
         </p>
       </div>
       {/* sports  */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10">
+      <div
+        data-aos="fade-up-right"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10"
+      >
         {categoryData.map((SingleCategoryData) => (
           <SingleCategory
             key={SingleCategoryData._id}
