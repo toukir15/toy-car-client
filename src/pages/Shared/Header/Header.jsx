@@ -44,7 +44,7 @@ export default function Header() {
             className=" w-full md:w-auto flex items-center gap-8"
             id="navbar-default"
           >
-            <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-base-200 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-base-200 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-500">
+            <ul className="font-medium flex flex-col  p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-base-200 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-base-200 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-500">
               <Link to="/">
                 <li
                   onClick={() => setNavItem("home")}
@@ -134,7 +134,8 @@ export default function Header() {
                   <div>
                     <img
                       className="w-8 h-8 rounded-full"
-                      src={user.photoURL}
+                      src={user?.photoURL}
+                      title={user?.displayName}
                       alt="user photo"
                     />
                   </div>
@@ -142,7 +143,7 @@ export default function Header() {
                   <button
                     onClick={handleLogout}
                     type="button"
-                    className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
+                    className=" bg-green-500 text-white transition hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-sm text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
                   >
                     Logout
                   </button>
@@ -151,7 +152,7 @@ export default function Header() {
                 <Link to="/login">
                   <button
                     type="button"
-                    className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
+                    className=" bg-green-500 text-white transition hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-sm text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
                   >
                     Login
                   </button>

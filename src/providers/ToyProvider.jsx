@@ -13,7 +13,7 @@ export default function CarProvider({ children }) {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/cars?email=${user.email}`)
+    fetch(`http://localhost:5000/cars?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setAllToysData(data);

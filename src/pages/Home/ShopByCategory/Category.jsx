@@ -15,9 +15,11 @@ export default function Category() {
   }, [category]);
   return (
     <div className="container mx-auto">
-      <h1 className="mt-20 mb-5 text-center font-medium text-4xl">
-        Shop by Category
-      </h1>
+      <div className="flex justify-center">
+        <h1 className="mt-20 mb-5 text-center font-medium text-4xl border-b-2 pb-3 w-80">
+          Shop by Category
+        </h1>
+      </div>
       <div className="flex justify-center gap-8 text-lg font-medium">
         <p
           onClick={() => setCategory("sports")}
@@ -60,7 +62,7 @@ export default function Category() {
         ))}
       </div>
       <div className="flex justify-center  ">
-        <button className="border-green-500 border-2 py-3 px-4 rounded-sm">
+        <button className="bg-green-500 text-lg font-lg text-white py-3 px-4 rounded-sm">
           See More
         </button>
       </div>

@@ -1,7 +1,11 @@
 export default function Gallery() {
   return (
     <div className="container mx-auto">
-      <h1 className="text-4xl font-medium my-20 text-center">Gallery</h1>
+      <div className="flex justify-center">
+        <h1 className="text-4xl font-medium my-20 text-center border-b-2 w-36 pb-2">
+          Gallery
+        </h1>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div>
           <img
