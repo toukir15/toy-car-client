@@ -6,7 +6,7 @@ import ButtonLoading from "../ui/ButtonLoading";
 export default function PrivateRoute({ children }) {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
-  console.log(location);
+  console.log("private Route", user, loading);
 
   if (loading) {
     return (

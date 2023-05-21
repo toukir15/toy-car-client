@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../providers/AuthProvider";
+import { AuthContext } from "../../../providers/AuthProvider";
 import {
   MdOutlineAddPhotoAlternate,
   MdOutlineDriveFileRenameOutline,
@@ -9,8 +9,8 @@ import { BiCategoryAlt, BiDollar } from "react-icons/bi";
 import { AiOutlineStar } from "react-icons/ai";
 import { TbFileDescription } from "react-icons/tb";
 import { useLoaderData } from "react-router-dom";
-import { CarContext } from "../../providers/ToyProvider";
-import ButtonLoading from "../../ui/ButtonLoading";
+import { CarContext } from "../../../providers/ToyProvider";
+import ButtonLoading from "../../../ui/ButtonLoading";
 
 export default function UpdateToys() {
   const { user } = useContext(AuthContext);

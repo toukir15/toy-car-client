@@ -13,7 +13,7 @@ export default function CarProvider({ children }) {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/cars?email=${user?.email}`)
+    fetch(`${import.meta.env.VITE_SERVER}/cars?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setAllToysData(data);
@@ -33,7 +33,7 @@ export default function CarProvider({ children }) {
   const handleDelete = (id) => {
     setIsDeleteLoading(true);
 
-    fetch(`http://localhost:5000/cars/${id}`, {
+    fetch(`${import.meta.env.VITE_SERVER}/cars/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -67,7 +67,7 @@ export default function CarProvider({ children }) {
 
   const handleAddToy = (data) => {
     setAddLoading(true);
-    fetch("http://localhost:5000/cars", {
+    fetch(`${import.meta.env.VITE_SERVER}/cars`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -102,7 +102,7 @@ export default function CarProvider({ children }) {
 
   const handleUpdateToy = (id, data) => {
     setUpdateLoading(true);
-    fetch(`http://localhost:5000/cars/${id}`, {
+    fetch(`${import.meta.env.VITE_SERVER}/cars/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

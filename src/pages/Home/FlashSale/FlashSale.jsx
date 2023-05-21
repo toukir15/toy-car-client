@@ -5,7 +5,7 @@ export default function FlashSale() {
   const [flashSaleData, setFlashSaleData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/cars?saleStatus=Flash`)
+    fetch(`${import.meta.env.VITE_SERVER}/cars?saleStatus=Flash`)
       .then((res) => res.json())
       .then((data) => {
         setFlashSaleData(data);

@@ -9,7 +9,7 @@ export default function Category() {
   const [categoryData, setCategoryData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/cars?category=${category}`)
+    fetch(`${import.meta.env.VITE_SERVER}/cars?category=${category}`)
       .then((res) => res.json())
       .then((data) => setCategoryData(data));
   }, [category]);

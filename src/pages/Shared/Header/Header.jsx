@@ -6,6 +6,8 @@ export default function Header() {
   const { user, logout } = useContext(AuthContext);
   const [navItem, setNavItem] = useState("home");
 
+  console.log("user", user);
+
   const handleLogout = () => {
     logout();
   };
@@ -80,21 +82,23 @@ export default function Header() {
                   </a>
                 </Link>
               </li>
-              <li
-                onClick={() => setNavItem("Blog")}
-                className={`${
-                  navItem === "Blog"
-                    ? "border-b-2 border-b-green-500"
-                    : "border-b-2"
-                }  pb-2`}
-              >
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
+              <Link to="blog">
+                <li
+                  onClick={() => setNavItem("Blog")}
+                  className={`${
+                    navItem === "Blog"
+                      ? "border-b-2 border-b-green-500"
+                      : "border-b-2"
+                  }  pb-2`}
                 >
-                  Blogs
-                </a>
-              </li>
+                  <a
+                    href="#"
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    Blogs
+                  </a>
+                </li>
+              </Link>
               {user ? (
                 <>
                   <Link to="/myToys">

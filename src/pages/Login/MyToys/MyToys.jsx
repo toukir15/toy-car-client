@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import SingleMyToy from "./SingleMyToy";
-import { CarContext } from "../../providers/ToyProvider";
+import { CarContext } from "../../../providers/ToyProvider";
 
 export default function MyToys() {
   const { allCarData } = useContext(CarContext);

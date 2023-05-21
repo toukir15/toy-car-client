@@ -1,15 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Home from "../pages/Home/Home/Home";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import AllToys from "../pages/AllToys/AllToys";
+import PrivateRoute from "./PrivateRoute";
+import MyToys from "../pages/Login/MyToys/MyToys";
+import AddToy from "../pages/AddToy/AddToy";
+import UpdateToys from "../pages/Login/MyToys/UpdateToys";
+import SingleToyDetails from "../pages/Shared/SingleToyDetails/SingleToyDetails";
 import Login from "../pages/Login/Login";
 import Resister from "../pages/Resister/Resister";
-import AllToys from "../pages/AllToys/AllToys";
-import SingleToyDetails from "../pages/Shared/SingleToyDetails/SingleToyDetails";
-import AddToy from "../pages/AddToy/AddToy";
-import MyToys from "../pages/MyToys/MyToys";
-import UpdateToys from "../pages/MyToys/UpdateToys";
-import PrivateRoute from "./PrivateRoute";
-import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Blog from "../pages/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
       {
         path: "allToys",
         element: <AllToys />,
-        loader: () => fetch("http://localhost:5000/cars"),
+        loader: () => fetch(`${import.meta.env.VITE_SERVER}/cars`),
       },
       {
         path: "myToys",
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
         path: "updateToys/:id",
         element: <UpdateToys />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/cars/${params.id}`),
+          fetch(`${import.meta.env.VITE_SERVER}/cars/${params.id}`),
       },
       {
         path: "singleToyDetails/:id",
@@ -56,7 +57,11 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/cars/${params.id}`),
+          fetch(`${import.meta.env.VITE_SERVER}/cars/${params.id}`),
+      },
+      {
+        path: "blog",
+        element: <Blog />,
       },
       {
         path: "login",

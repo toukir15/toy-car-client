@@ -1,10 +1,13 @@
 export default function Blog() {
   return (
-    <div>
-      <h2>Blogs</h2>
+    <div className="container mx-auto">
+      <h2 className="text-center my-10 text-4xl font-medium">Blogs</h2>
       <div>
         <div>
-          <h3></h3>
+          <h3 className="text-2xl font-medium mb-2 mt-4">
+            1. What is an access token and refresh token? How do they work and
+            where should we store them on the client-side?
+          </h3>
           <p>
             An access token is a credential that is used to authorize and
             authenticate a client when making requests to access protected
@@ -38,7 +41,21 @@ export default function Blog() {
           </p>
         </div>
         <div>
-          <h3>3.What is express js?</h3>
+          <h3 className="text-2xl font-medium mb-2 mt-4">
+            2.Compare SQL and NoSQL databases?
+          </h3>
+          <p>
+            SQL databases are vertically scalable, while NoSQL databases are
+            horizontally scalable. SQL databases are table-based, while NoSQL
+            databases are document, key-value, graph, or wide-column stores. SQL
+            databases are better for multi-row transactions, while NoSQL is
+            better for unstructured data like documents or JSON.
+          </p>
+        </div>
+        <div>
+          <h3 className="text-2xl font-medium mb-2 mt-4">
+            3.What is express js?
+          </h3>
           <p>
             Express.js is a popular web application framework for Node.js, a
             JavaScript runtime environment. It provides a minimalist and
@@ -49,7 +66,9 @@ export default function Blog() {
           </p>
         </div>
         <div>
-          <h3>4. What is next js?</h3>
+          <h3 className="text-2xl font-medium mb-2 mt-4">
+            4. What is next js?
+          </h3>
           <p>
             NestJS is a progressive, extensible, and TypeScript-based framework
             for building scalable and efficient server-side applications. It is
@@ -59,7 +78,9 @@ export default function Blog() {
           </p>
         </div>
         <div>
-          <h3>5.What is MongoDB aggregate and how does it work?</h3>
+          <h3 className="text-2xl font-medium mb-2 mt-4">
+            5.What is MongoDB aggregate and how does it work?
+          </h3>
           <p>
             In MongoDB, the aggregate method is a powerful feature that allows
             you to perform advanced data processing and aggregation operations

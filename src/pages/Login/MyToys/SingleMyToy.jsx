@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { BiEdit } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { CarContext } from "../../providers/ToyProvider";
-import ButtonLoading from "../../ui/ButtonLoading";
+import ButtonLoading from "../../../ui/ButtonLoading";
+import { CarContext } from "../../../providers/ToyProvider";
 
 export default function SingleMyToy({ singleToyData }) {
   const { deleteSingleCar } = useContext(CarContext);

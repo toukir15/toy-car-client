@@ -53,11 +53,12 @@ export default function AuthProvider({ children }) {
 
   // current user
   useEffect(() => {
+    console.log("enter");
     setLoading(true);
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoading(false);
     });
+    setLoading(false);
     return () => unSubscribe();
   }, []);
 

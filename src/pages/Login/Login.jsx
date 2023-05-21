@@ -8,10 +8,8 @@ export default function Login() {
     useContext(AuthContext);
 
   const location = useLocation();
-  console.log(location);
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname || "/";
-  console.log(from);
 
   const handleLogin = (event) => {
     event.preventDefault();

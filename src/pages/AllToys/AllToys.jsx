@@ -84,6 +84,7 @@ export default function AllToys() {
         <tbody>
           {allToysData
             .filter((toyData) => toyData.name.toLowerCase().includes(query))
+            .slice(0, 20)
             .map((singleToyData) => (
               <SingleToy
                 key={singleToyData._id}
