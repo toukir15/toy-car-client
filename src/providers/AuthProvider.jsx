@@ -20,35 +20,43 @@ export default function AuthProvider({ children }) {
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
   // create user
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // login user
   const loginUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // google sign in
   const googleSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   // github sign in
   const githubSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, githubProvider);
   };
 
   // logout
   const logout = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
   // current user
   useEffect(() => {
+    setLoading(true);
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
     return () => unSubscribe();
   }, []);
@@ -65,6 +73,7 @@ export default function AuthProvider({ children }) {
     setError,
     success,
     error,
+    loading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
