@@ -23,7 +23,7 @@ export default function CarProvider({ children }) {
         setIsError(error?.message);
         setIsLoading(false);
       });
-  }, [user.email]);
+  }, [user?.email]);
   const allCarData = { data: allToysData, isLoading, isError };
 
   // handle single toy data function

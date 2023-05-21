@@ -10,6 +10,7 @@ export default function Login() {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.pathName || "/";
+  console.log(from);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -39,7 +40,7 @@ export default function Login() {
           <h1 className="text-5xl font-bold">Login now!</h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div className="card-body">
+          <div className="card-body pb-0">
             <form onSubmit={handleLogin}>
               <div className="form-control">
                 <label className="label">

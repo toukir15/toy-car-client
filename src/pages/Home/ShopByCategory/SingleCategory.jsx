@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 import { BiDollar } from "react-icons/bi";
 
 export default function SingleCategory({ SingleCategoryData }) {
-  console.log(SingleCategoryData);
   const { _id, img, category, description, price, ratings, name } =
     SingleCategoryData;
   return (
