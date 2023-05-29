@@ -11,8 +11,7 @@ import { BiDollar } from "react-icons/bi";
 import { toast } from "react-toastify";
 
 export default function SingleCategory({ SingleCategoryData }) {
-  const { _id, img, category, description, price, ratings, name } =
-    SingleCategoryData;
+  const { _id, img, price, name } = SingleCategoryData;
   const notify = () => toast("Wow so easy !");
   return (
     <div className="max-w-sm  my-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 group/card">

@@ -10,12 +10,11 @@ import { AiOutlineStar } from "react-icons/ai";
 import { TbFileDescription } from "react-icons/tb";
 import { CarContext } from "../../providers/ToyProvider";
 import ButtonLoading from "../../ui/ButtonLoading";
-// import Swal from "sweetalert2";
 
 export default function AddToy() {
   const { user } = useContext(AuthContext);
   const { addToy } = useContext(CarContext);
-  const { function: addToyFN, data, isLoading, isError } = addToy || {};
+  const { function: addToyFN, isLoading, isError } = addToy || {};
   const handleAddToy = (event) => {
     event.preventDefault();
     const form = event.target;

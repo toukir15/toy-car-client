@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-// import SportsCar from "./SingleCategory";
-// import RegularCar from "./RegularCar";
+
 import SingleCategory from "./SingleCategory";
 import { BsBookmark } from "react-icons/bs";
 

@@ -20,7 +20,7 @@ export default function AuthProvider({ children }) {
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   // create user
   const createUser = (email, password) => {
     setLoading(true);
@@ -57,8 +57,8 @@ export default function AuthProvider({ children }) {
     setLoading(true);
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
-    setLoading(false);
     return () => unSubscribe();
   }, []);
 

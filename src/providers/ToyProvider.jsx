@@ -96,7 +96,8 @@ export default function CarProvider({ children }) {
   };
 
   // handle toy edit function
-  const [updateData, setUpdateData] = useState([]);
+  // const [updateData, setUpdateData] = useState([]);
+  const [updateData] = useState([]);
   const [updateLoading, setUpdateLoading] = useState(false);
   const [updateError, setUpdateError] = useState("");
 

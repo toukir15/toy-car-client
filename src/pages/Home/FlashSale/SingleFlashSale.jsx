@@ -2,7 +2,7 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Rating from "react-rating";
 
 export default function SingleFlashSale({ singleFlashSaleData }) {
-  const { name, price, rating, img } = singleFlashSaleData;
+  const { name, price, img } = singleFlashSaleData;
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="rounded-lg">

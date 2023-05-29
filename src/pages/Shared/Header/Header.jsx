@@ -1,10 +1,9 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 export default function Header() {
   const { user, logout } = useContext(AuthContext);
-  const [navItem, setNavItem] = useState("home");
 
   console.log("user", user);
 
@@ -36,9 +35,9 @@ export default function Header() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
           </button>
@@ -47,15 +46,15 @@ export default function Header() {
             id="navbar-default"
           >
             <ul className="font-medium flex flex-col  p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-base-200 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-base-200 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-500">
-              <Link to="/">
-                <li
-                  onClick={() => setNavItem("home")}
-                  className={`${
-                    navItem === "home"
-                      ? "border-b-2 border-b-green-500"
-                      : "border-b-2"
-                  }  pb-2`}
-                >
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 border-b-green-500 pb-2"
+                    : "border-b-2 pb-2"
+                }
+              >
+                <li>
                   <a
                     href="#"
                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
@@ -64,33 +63,35 @@ export default function Header() {
                     Home
                   </a>
                 </li>
-              </Link>
-              <li
-                onClick={() => setNavItem("All Toys")}
-                className={`${
-                  navItem === "All Toys"
-                    ? "border-b-2 border-b-green-500"
-                    : "border-b-2"
-                }  pb-2`}
+              </NavLink>
+              <NavLink
+                to="/allToys"
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 border-b-green-500 pb-2"
+                    : "border-b-2 pb-2"
+                }
               >
-                <Link to="/allToys">
+                <li>
                   <a
                     href="#"
                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
+                    aria-current="page"
                   >
                     All Toys
                   </a>
-                </Link>
-              </li>
-              <Link to="blog">
-                <li
-                  onClick={() => setNavItem("Blog")}
-                  className={`${
-                    navItem === "Blog"
-                      ? "border-b-2 border-b-green-500"
-                      : "border-b-2"
-                  }  pb-2`}
-                >
+                </li>
+              </NavLink>
+
+              <NavLink
+                to="blog"
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 border-b-green-500 pb-2"
+                    : "border-b-2 pb-2"
+                }
+              >
+                <li>
                   <a
                     href="#"
                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
@@ -98,18 +99,18 @@ export default function Header() {
                     Blogs
                   </a>
                 </li>
-              </Link>
+              </NavLink>
               {user ? (
                 <>
-                  <Link to="/myToys">
-                    <li
-                      onClick={() => setNavItem("My Toys")}
-                      className={`${
-                        navItem === "My Toys"
-                          ? "border-b-2 border-b-green-500"
-                          : "border-b-2"
-                      }  pb-2`}
-                    >
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "border-b-2 border-b-green-500 pb-2"
+                        : "border-b-2 pb-2"
+                    }
+                    to="/myToys"
+                  >
+                    <li>
                       <a
                         href="#"
                         className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
@@ -117,16 +118,16 @@ export default function Header() {
                         My Toys
                       </a>
                     </li>
-                  </Link>
-                  <Link to="/addToy">
-                    <li
-                      onClick={() => setNavItem("Add Toy")}
-                      className={`${
-                        navItem === "Add Toy"
-                          ? "border-b-2 border-b-green-500"
-                          : "border-b-2"
-                      }  pb-2`}
-                    >
+                  </NavLink>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "border-b-2 border-b-green-500 pb-2"
+                        : "border-b-2 pb-2"
+                    }
+                    to="/addToy"
+                  >
+                    <li>
                       <a
                         href="#"
                         className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-500 dark:hover:text-white md:dark:hover:bg-transparent"
@@ -134,7 +135,7 @@ export default function Header() {
                         Add a Toys
                       </a>
                     </li>
-                  </Link>
+                  </NavLink>
                   <div>
                     <img
                       className="w-8 h-8 rounded-full"
@@ -153,14 +154,21 @@ export default function Header() {
                   </button>
                 </>
               ) : (
-                <Link to="/login">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "border-b-2 border-b-green-500 pb-2"
+                      : "border-b-2 pb-2"
+                  }
+                  to="/login"
+                >
                   <button
                     type="button"
                     className=" bg-green-500 text-white transition hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-sm text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
                   >
                     Login
                   </button>
-                </Link>
+                </NavLink>
               )}
             </ul>
           </div>

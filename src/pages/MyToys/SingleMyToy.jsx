@@ -1,16 +1,12 @@
 import { useContext, useState } from "react";
 import { BiEdit } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import ButtonLoading from "../../../ui/ButtonLoading";
-import { CarContext } from "../../../providers/ToyProvider";
+import ButtonLoading from "../../ui/ButtonLoading";
+import { CarContext } from "../../providers/ToyProvider";
 
 export default function SingleMyToy({ singleToyData }) {
   const { deleteSingleCar } = useContext(CarContext);
-  const {
-    function: handleDeleteCar,
-    isLoading,
-    isError,
-  } = deleteSingleCar || {};
+  const { function: handleDeleteCar, isLoading } = deleteSingleCar || {};
   const { img, name, Category, price, _id, seller_name, seller_email } =
     singleToyData || {};
   const [loading, setLoading] = useState(false);

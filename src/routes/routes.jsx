@@ -4,13 +4,13 @@ import Home from "../pages/Home/Home/Home";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AllToys from "../pages/AllToys/AllToys";
 import PrivateRoute from "./PrivateRoute";
-import MyToys from "../pages/Login/MyToys/MyToys";
 import AddToy from "../pages/AddToy/AddToy";
-import UpdateToys from "../pages/Login/MyToys/UpdateToys";
 import SingleToyDetails from "../pages/Shared/SingleToyDetails/SingleToyDetails";
 import Login from "../pages/Login/Login";
 import Resister from "../pages/Resister/Resister";
 import Blog from "../pages/Blog/Blog";
+import MyToys from "../pages/MyToys/MyToys";
+import UpdateToys from "../pages/MyToys/UpdateToys";
 
 const router = createBrowserRouter([
   {
