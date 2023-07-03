@@ -14,7 +14,7 @@ export default function FlashSale() {
   }, []);
 
   return (
-    <div className="my-16 container mx-auto px-2  ">
+    <div className="mt-16 container mx-auto px-2  ">
       <h2 className="mb-10 bg-red-500 w-24 py-2 text-center text-white">
         Flash Sale
       </h2>

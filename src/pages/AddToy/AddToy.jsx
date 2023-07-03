@@ -44,9 +44,9 @@ export default function AddToy() {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-2">
       <div className="flex justify-center ">
-        <h2 className="text-4xl font-medium flex justify-center pb-2 w-52 my-8 border-b-2">
+        <h2 className="text-3xl md:text-4xl font-medium flex justify-center pb-2 w-52 my-8 border-b-2">
           Add a Toy
         </h2>
       </div>

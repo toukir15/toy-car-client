@@ -1,9 +1,11 @@
 export default function Contract() {
   return (
     <div className="mt-16">
-      <div className="flex flex-col justify-center items-center">
-        <h1 className="text-4xl font-bold mb-3">We’re Here to Help You</h1>
-        <p>
+      <div className="flex flex-col justify-center items-center px-2">
+        <h1 className="text-3xl md:text-4xl font-bold mb-3">
+          We’re Here to Help You
+        </h1>
+        <p className="text-center">
           We always want to hear from you! Let us know how we can best help you
           and we'll do our very best.
         </p>

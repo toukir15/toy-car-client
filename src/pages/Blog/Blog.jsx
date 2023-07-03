@@ -1,14 +1,16 @@
 export default function Blog() {
   return (
-    <div className="container mx-auto">
-      <h2 className="text-center my-10 text-4xl font-medium">Blogs</h2>
+    <div className="container mx-auto px-2">
+      <h2 className="text-center my-10 text-3xl md:text-4xl font-medium">
+        Blogs
+      </h2>
       <div>
         <div>
-          <h3 className="text-2xl font-medium mb-2 mt-4">
+          <h3 className="text-xl md:text-2xl font-medium mb-2 mt-4">
             1. What is an access token and refresh token? How do they work and
             where should we store them on the client-side?
           </h3>
-          <p>
+          <p className="text-justify">
             An access token is a credential that is used to authorize and
             authenticate a client when making requests to access protected
             resources on a server. It is typically issued by an authentication
@@ -41,10 +43,10 @@ export default function Blog() {
           </p>
         </div>
         <div>
-          <h3 className="text-2xl font-medium mb-2 mt-4">
+          <h3 className="text-xl md:text-2xl font-medium mb-2 mt-4">
             2.Compare SQL and NoSQL databases?
           </h3>
-          <p>
+          <p className="text-justify">
             SQL databases are vertically scalable, while NoSQL databases are
             horizontally scalable. SQL databases are table-based, while NoSQL
             databases are document, key-value, graph, or wide-column stores. SQL
@@ -53,10 +55,10 @@ export default function Blog() {
           </p>
         </div>
         <div>
-          <h3 className="text-2xl font-medium mb-2 mt-4">
+          <h3 className="text-xl md:text-2xl font-medium mb-2 mt-4">
             3.What is express js?
           </h3>
-          <p>
+          <p className="text-justify">
             Express.js is a popular web application framework for Node.js, a
             JavaScript runtime environment. It provides a minimalist and
             flexible set of tools and features for building web applications and
@@ -66,10 +68,10 @@ export default function Blog() {
           </p>
         </div>
         <div>
-          <h3 className="text-2xl font-medium mb-2 mt-4">
+          <h3 className="text-xl md:text-2xl font-medium mb-2 mt-4">
             4. What is next js?
           </h3>
-          <p>
+          <p className="text-justify">
             NestJS is a progressive, extensible, and TypeScript-based framework
             for building scalable and efficient server-side applications. It is
             built on top of Node.js and leverages concepts from popular
@@ -78,10 +80,10 @@ export default function Blog() {
           </p>
         </div>
         <div>
-          <h3 className="text-2xl font-medium mb-2 mt-4">
+          <h3 className="text-xl md:text-2xl font-medium mb-2 mt-4">
             5.What is MongoDB aggregate and how does it work?
           </h3>
-          <p>
+          <p className="text-justify">
             In MongoDB, the aggregate method is a powerful feature that allows
             you to perform advanced data processing and aggregation operations
             on collections. It provides a flexible and efficient way to analyze,

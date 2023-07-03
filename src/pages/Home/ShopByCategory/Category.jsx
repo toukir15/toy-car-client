@@ -15,7 +15,7 @@ export default function Category() {
   return (
     <div className="container mx-auto">
       <div className="flex justify-center">
-        <h1 className="mt-20 mb-5 text-center font-medium text-4xl border-b-2 pb-3 w-80">
+        <h1 className="mt-20 mb-5 text-center font-medium text-3xl md:text-4xl border-b-2 pb-3 w-80">
           Shop by Category
         </h1>
       </div>

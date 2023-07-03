@@ -36,7 +36,7 @@ export default function Header() {
             id="navbar-default"
           >
             <ul
-              className={` font-medium flex flex-col  p-4 px-12 md:p-0 mt-4 border  bg-gray-200 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-base-200 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-500 absolute md:static  ${
+              className={` font-medium flex flex-col  p-4 px-12 md:p-0 mt-4 border  bg-gray-200 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-base-200  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-500 absolute md:static  ${
                 toggle ? " z-10 top-10 right-8" : " -top-[400px] right-8"
               }`}
             >
@@ -129,7 +129,7 @@ export default function Header() {
                       </a>
                     </li>
                   </NavLink>
-                  <div>
+                  <div className="my-2 md:my-0 flex justify-center">
                     <img
                       className="w-8 h-8 rounded-full"
                       src={user?.photoURL}

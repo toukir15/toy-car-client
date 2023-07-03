@@ -34,7 +34,7 @@ export default function SingleCategory({ SingleCategoryData }) {
 
       <div className="p-2 flex flex-col justify-center items-center">
         <div className="flex flex-col items-center">
-          <p className="text-2xl font-medium">{name}</p>
+          <p className="text-xl md:text-2xl font-medium mb-2">{name}</p>
         </div>
         <div>
           <Rating
