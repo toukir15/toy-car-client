@@ -14,7 +14,7 @@ export default function SingleCategory({ SingleCategoryData }) {
   const { _id, img, price, name } = SingleCategoryData;
   const notify = () => toast("Wow so easy !");
   return (
-    <div className="max-w-sm  my-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 group/card">
+    <div className="max-w-sm my-5  md:my-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 group/card">
       <div className="relative w-full h-[16.6rem] overflow-hidden ">
         <img className="rounded-t-lg object-fill" src={img} alt="" />
         <div className="flex justify-center gap-4 text-2xl bg-gray-100 py-8 absolute -bottom-[108px] group-hover/card:bottom-0 duration-500 ease-in-out w-full ">

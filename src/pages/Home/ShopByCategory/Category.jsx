@@ -52,16 +52,18 @@ export default function Category() {
         </p>
       </div>
       {/* sports  */}
-      <div
-        data-aos="fade-up-right"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10"
-      >
-        {categoryData.map((SingleCategoryData) => (
-          <SingleCategory
-            key={SingleCategoryData._id}
-            SingleCategoryData={SingleCategoryData}
-          />
-        ))}
+      <div className="flex justify-center">
+        <div
+          data-aos="fade-up-right"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 mt-10"
+        >
+          {categoryData.map((SingleCategoryData) => (
+            <SingleCategory
+              key={SingleCategoryData._id}
+              SingleCategoryData={SingleCategoryData}
+            />
+          ))}
+        </div>
       </div>
       <div className="flex justify-center  ">
         <button className="bg-green-500 text-lg font-lg text-white py-3 px-4 rounded-sm">

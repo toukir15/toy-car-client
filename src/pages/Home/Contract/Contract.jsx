@@ -9,8 +9,8 @@ export default function Contract() {
         </p>
       </div>
       <form>
-        <div className="flex justify-center mt-6 gap-x-8">
-          <div className="w-340%]">
+        <div className="md:flex justify-center mt-6 gap-x-8 md:mx-52 px-2">
+          <div className="w-full md:w-[50%]">
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Your Email
             </label>
@@ -23,7 +23,7 @@ export default function Contract() {
               />
             </div>
           </div>
-          <div className="w-[30%]">
+          <div className="w-ful md:w-[50%]">
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Username
             </label>
@@ -36,9 +36,9 @@ export default function Contract() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center md:mx-52 px-2 mt-6">
           <textarea
-            className="border w-[72%] p-4"
+            className="border w-full p-4"
             placeholder="Type here"
             name="description"
             id=""
@@ -47,9 +47,11 @@ export default function Contract() {
           ></textarea>
         </div>
         <div className="flex justify-center mt-10">
-          <button className="bg-green-500 text-white rounded px-4 py-3">
-            Submit
-          </button>
+          <input
+            type="submit"
+            value="Submit"
+            className="bg-green-500 text-white rounded px-4 py-3 w-full mx-52"
+          />
         </div>
       </form>
     </div>
